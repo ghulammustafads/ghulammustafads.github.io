@@ -1,0 +1,60 @@
+</section><section id="resume" class="resume section">
+      <div class="container section-title" data-aos="fade-up" style="margin-bottom: 0px; padding-bottom: 10px;"></div>
+        <h2>Resume</h2>
+        <p>A summary of my education, certifications, and experience in Data Analytics.</p>
+      </div><div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Summary</h3>
+
+            <div class="resume-item pb-0">
+              <h4>Ghulam Mustafa</h4>
+              <p><em>Innovative and detail-oriented Data Analyst and IT Student with 2 internships and 13+ projects completed. Expert in PowerBI and SQL with a strong freelance interest in Data and AI.</em></p>
+              <ul>
+                <li>Nawab Shah, Pakistan</li>
+                <li>+92 3234587228</li>
+                <li>ghulammustafa.ds.ai@gmail.com</li>
+              </ul>
+            </div><h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>BS Information Technology</h4>
+              <h5>2026 - Present</h5>
+              <p><em>Shaheed Benazir Bhutto University Shaheed Benazirabad</em></p>
+              <p>Focusing on Basics of CS like  Data Structures, Programming and Mathmetics .</p>
+            </div><div class="resume-item">
+              <h4>Google Data Analytics Certification</h4>
+              <h5>2025</h5>
+              <p><em>Coursera / Google</em></p>
+              <p>Comprehensive training in the data analysis process (Ask, Prepare, Process, Analyze, Share, Act) using R, SQL, and Tableau.</p>
+            </div></div>
+            </div><div class="resume-item">
+              <h4>Google  Advanced Data Analytics Certification</h4>
+              <h5>2025</h5>
+              <p><em>Coursera / Google</em></p>
+              <p>Detailed training in the data analysis process , learned tools like python , Statistics ,.</p>
+            </div></div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="resume-title">Professional Experience</h3>
+            <div class="resume-item">
+              <h4>Freelance Data Analyst</h4>
+              <h5>2026 - Present</h5>
+              <p><em>Upwork &amp; Contra</em></p>
+              <ul>
+                <li>Delivering data-driven solutions including Dashboards and Reports in Powerbi  and Data  Cleaning in python and Excel.</li>
+                <li>Specializing in Python Automation and SQL Query optimization.</li>
+              </ul>
+            </div><div class="resume-item">
+              <h4>Data Science Internships</h4>
+              <h5>Prior Experience</h5>
+              <p><em>Multiple Organizations</em></p>
+              <ul>
+                <li>Completed two rigorous Data Science internships.</li>
+                <li>Worked on over <strong>20 projects</strong> related to Data Analysis, Data Cleaning, EDA (Exploratory Data Analysis), and Data Wrangling.</li>
+                <li>Developed 6 major portfolio projects showcasing end-to-end data skills.</li>
+              </ul>
+            </div></div>
+
+        </div>
