@@ -226,4 +226,17 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  /**
+   * Lazy Image Loading - Add loaded class when images finish loading
+   */
+  document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+    img.addEventListener('load', function() {
+      this.classList.add('loaded');
+    });
+    // If image is already loaded from cache
+    if (img.complete) {
+      img.classList.add('loaded');
+    }
+  });
+
 })();
