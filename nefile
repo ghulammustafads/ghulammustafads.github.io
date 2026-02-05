@@ -38,7 +38,7 @@
     </a>
 
     <div class="social-links text-center">
-      <a href="https://github.com/ghulammustafadsai-web" target="_blank" class="github"><i class="bi bi-github"></i></a>
+      <a href="https://github.com/ghulammustafads" target="_blank" class="github"><i class="bi bi-github"></i></a>
       <a href="www.linkedin.com/in/ghulam-mustafa-data-analyst" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
       <a href="https://www.notion.so/b6558a3aceae46e98da5b6eb756281b8" target="_blank" class="notion" title="Notion Portfolio"><i class="bi bi-journal-text"></i></a>
     </div>
@@ -283,7 +283,7 @@
                 <div class="portfolio-info">
                   <h4>Meta Ads Analysis</h4>
                   <p>PowerBI, Excel, PowerQuery</p>
-                  <a href="https://github.com/ghulammustafadsai-web/Meta-Ade-Analysis-PowerBI-Excel.git" target="_blank" title="GitHub Repo" class="preview-link">
+                  <a href="https://github.com/ghulammustafads/Meta-Ade-Analysis-PowerBI-Excel.git" target="_blank" title="GitHub Repo" class="preview-link">
                     <i class="bi bi-github"></i>
                   </a>
                   <a href="https://hot-girdle-a16.notion.site/Meta-Ade-Performance-Analysis-2e57b9ad8e3380d2a26dfeaf577946c1" target="_blank" title="Read Case Study" class="details-link">
@@ -299,7 +299,7 @@
                 <div class="portfolio-info">
                   <h4>Bank Loan Analysis</h4>
                   <p>SQL, PowerBI, Excel, PowerQuery</p>
-                  <a href="https://github.com/ghulammustafadsai-web/Bank-Loan-Analytics-PowerBI-SQL.git" target="_blank" title="GitHub Repo" class="preview-link">
+                  <a href="https://github.com/ghulammustafads/Bank-Loan-Analytics-PowerBI-SQL.git" target="_blank" title="GitHub Repo" class="preview-link">
                     <i class="bi bi-github"></i>
                   </a>
                   <a href="https://hot-girdle-a16.notion.site/Bank-Loan-Risk-Analysis-Identifying-Good-vs-Bad-Loans-2e47b9ad8e338071949fd254500a2158" target="_blank" title="Read Case Study" class="details-link">
@@ -315,7 +315,7 @@
                 <div class="portfolio-info">
                   <h4>Quickbite Express Analysis</h4>
                   <p>Advanced DAX, PowerBI, SQL</p>
-                  <a href="https://github.com/ghulammustafadsai-web/QuickBite_Express_Crisis_Recovery_Analysis_PowerBI_SQL_Excel.git" target="_blank" title="GitHub Repo" class="preview-link">
+                  <a href="https://github.com/ghulammustafads/QuickBite_Express_Crisis_Recovery_Analysis_PowerBI_SQL_Excel.git" target="_blank" title="GitHub Repo" class="preview-link">
                     <i class="bi bi-github"></i>
                   </a>
                   <a href="https://hot-girdle-a16.notion.site/Quick-Bite-Crisis-Recovery-Analysis-2e27b9ad8e33800fa31cdd565b8809ef" target="_blank" title="Read Case Study" class="details-link">
@@ -331,7 +331,7 @@
                 <div class="portfolio-info">
                   <h4>Employee Attrition</h4>
                   <p>SQL, PowerBI, Excel</p>
-                  <a href="https://github.com/ghulammustafadsai-web/Employee-Attrition-Retension-Analysis-PowerBI-SQL.git" target="_blank" title="GitHub Repo" class="preview-link">
+                  <a href="https://github.com/ghulammustafads/Employee-Attrition-Retension-Analysis-PowerBI-SQL.git" target="_blank" title="GitHub Repo" class="preview-link">
                     <i class="bi bi-github"></i>
                   </a>
                   <a href="https://hot-girdle-a16.notion.site/Employee-Attrition-Retension-Analysis-2e47b9ad8e338016a090c12cfcf07525?pvs=73" target="_blank" title="Read Case Study" class="details-link">
@@ -347,7 +347,7 @@
                 <div class="portfolio-info">
                   <h4>H1-B Data Wrangling</h4>
                   <p>Python, Pandas (3M+ Records)</p>
-                  <a href="https://github.com/ghulammustafadsai-web/Data-Wrangling_H1B-Visa-3M-_Records.git" target="_blank" title="GitHub Repo" class="preview-link">
+                  <a href="https://github.com/ghulammustafads/Data-Wrangling_H1B-Visa-3M-_Records.git" target="_blank" title="GitHub Repo" class="preview-link">
                     <i class="bi bi-github"></i>
                   </a>
                 </div>
@@ -360,7 +360,7 @@
                 <div class="portfolio-info">
                   <h4>Super Store Sales</h4>
                   <p>Python, Seaborn, Matplotlib, Excel</p>
-                  <a href="https://github.com/ghulammustafadsai-web/super_store_sales_eda.git" target="_blank" title="GitHub Repo" class="preview-link">
+                  <a href="https://github.com/ghulammustafads/super_store_sales_eda.git" target="_blank" title="GitHub Repo" class="preview-link">
                     <i class="bi bi-github"></i>
                   </a>
                 </div>

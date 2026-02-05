@@ -16,10 +16,14 @@
 
   function headerToggle() {
     document.querySelector('#header').classList.toggle('header-show');
-    headerToggleBtn.classList.toggle('bi-list');
-    headerToggleBtn.classList.toggle('bi-x');
+    if (headerToggleBtn) {
+      headerToggleBtn.classList.toggle('bi-list');
+      headerToggleBtn.classList.toggle('bi-x');
+    }
   }
-  headerToggleBtn.addEventListener('click', headerToggle);
+  if (headerToggleBtn) {
+    headerToggleBtn.addEventListener('click', headerToggle);
+  }
 
   /**
    * Hide mobile nav on same-page/hash links
@@ -65,13 +69,16 @@
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
   }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  
+  if (scrollTop) {
+    scrollTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
-  });
+  }
 
   window.addEventListener('load', toggleScrollTop);
   document.addEventListener('scroll', toggleScrollTop);
@@ -150,6 +157,9 @@
         filter: filter,
         sortBy: sort
       });
+      // store instance globally so other UI can trigger a relayout when container size changes
+      window._isotopeInstances = window._isotopeInstances || [];
+      window._isotopeInstances.push(initIsotope);
     });
 
     isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
@@ -238,5 +248,45 @@
       img.classList.add('loaded');
     }
   });
+
+  /**
+   * Sidebar collapse toggle (desktop)
+   */
+  const headerEl = document.getElementById('header');
+  const sidebarToggleBtn = document.getElementById('sidebar-collapse');
+  if (headerEl && sidebarToggleBtn) {
+    // restore state
+    if (localStorage.getItem('sidebarCollapsed') === 'true') {
+      headerEl.classList.add('collapsed');
+      sidebarToggleBtn.innerHTML = '<i class="bi bi-chevron-right"></i>';
+    }
+    sidebarToggleBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      headerEl.classList.toggle('collapsed');
+      const collapsed = headerEl.classList.contains('collapsed');
+      localStorage.setItem('sidebarCollapsed', collapsed ? 'true' : 'false');
+      sidebarToggleBtn.innerHTML = collapsed ? '<i class="bi bi-chevron-right"></i>' : '<i class="bi bi-chevron-left"></i>';
+      // trigger isotope relayout after transition finishes so masonry recalculates
+      setTimeout(function() {
+        if (window._isotopeInstances && window._isotopeInstances.length) {
+          window._isotopeInstances.forEach(function(inst) { try { inst.layout(); } catch(e) {} });
+        }
+        // also trigger a resize event as a fallback for other libs
+        window.dispatchEvent(new Event('resize'));
+      }, 360);
+    });
+  }
+
+  // ensure isotope relayout when mobile header toggles (open/close)
+  const headerToggleEl = document.querySelector('.header-toggle');
+  if (headerToggleEl) {
+    headerToggleEl.addEventListener('click', function() {
+      setTimeout(function() {
+        if (window._isotopeInstances && window._isotopeInstances.length) {
+          window._isotopeInstances.forEach(function(inst) { try { inst.layout(); } catch(e) {} });
+        }
+      }, 360);
+    });
+  }
 
 })();
