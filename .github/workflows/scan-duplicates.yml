@@ -1,0 +1,35 @@
+name: Scan for unauthorized copies
+
+on:
+  schedule:
+    - cron: '0 2 * * 0' # Weekly, Sundays at 02:00 UTC
+  workflow_dispatch: {}
+
+jobs:
+  scan:
+    name: Search public code for project fingerprint
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Search repository code for fingerprint
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fingerprint = 'GhulamMustafaPortfolioFingerprint-2026-9f4b';
+            const query = `${fingerprint} in:file`;
+            const res = await github.rest.search.code({ q: query, per_page: 100 });
+            const count = res.data.total_count || 0;
+            if (count > 0) {
+              const items = res.data.items.map(i => `- ${i.html_url} (path: ${i.path})`).join('\n');
+              const body = `Automated scan found **${count}** potential match(es) for repository fingerprint **${fingerprint}**.\n\n${items}\n\nPlease review and take action (DMCA or contact hosting provider) if these are unauthorized copies.`;
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `Potential unauthorized copies detected — ${count} match(es)`,
+                body
+              });
+            } else {
+              console.log('No matches found for fingerprint.');
+            }
