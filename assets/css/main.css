@@ -25,6 +25,8 @@
   --accent-color: #00d4ff; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #1a1f3a; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --sidebar-width: 300px;
+  --sidebar-collapsed-width: 80px;
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -152,7 +154,7 @@ h6 {
   left: 0;
   bottom: 0;
   padding: 20px 15px;
-  width: 300px;
+  width: var(--sidebar-width);
   transition: all ease-in-out 0.3s;
   overflow: hidden;
   z-index: 997;
@@ -241,22 +243,38 @@ h6 {
 
 @media (min-width: 1200px) {
 
+  /* Reserve sidebar space so main layout never shifts when sidebar toggles */
   .header~main,
   .header~#footer {
-    margin-left: 300px;
+    padding-left: var(--sidebar-width);
+    transition: padding-left 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow-x: hidden;
   }
+
+  main .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+
+  main .row {
+    width: 100%;
+    margin: 0;
+  }
+
 }
 
 /* Collapsed sidebar styles for a professional icons-only left menu */
 .header.collapsed {
-  width: 80px;
-  transition: width 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Icons-only collapsed state: keep visual width small so main content doesn't have excessive left gap */
+  width: var(--sidebar-collapsed-width);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.header.collapsed ~ main,
-.header.collapsed ~ #footer {
-  margin-left: 80px;
-  transition: margin-left 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+.header.collapsed ~ main, .header.collapsed ~ #footer {
+  /* When icons-only, reserve the smaller collapsed width so content aligns correctly */
+  padding-left: var(--sidebar-collapsed-width);
 }
 
 /* Show labels only when sidebar expanded */
@@ -274,10 +292,10 @@ h6 {
 
 /* Allow hover-to-expand when collapsed */
 .header.collapsed:hover {
-  width: 300px;
+  width: var(--sidebar-width);
 }
 .header.collapsed:hover ~ main {
-  margin-left: 300px;
+  padding-left: var(--sidebar-width);
 }
 .header.collapsed:hover .navmenu a .nav-label {
   display: inline-block;
@@ -1757,7 +1775,36 @@ section::after {
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
-.portfolio .portfolio-filters {
+.portfolio {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.portfolio .container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.portfolio .row {
+  margin: 0;
+  width: 100%;
+}
+
+/* When the left sidebar/header is hidden (off-canvas), keep the project grid centered
+   by using a fixed max-width container and cancelling any left-padding from the main area. */
+.header:not(.header-show) ~ main .portfolio {
+  padding-left: 0;
+}
+
+.header:not(.header-show) ~ main .portfolio .container {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
   padding: 0;
   margin: 0 auto 20px auto;
   list-style: none;
@@ -1807,6 +1854,9 @@ section::after {
 .portfolio .portfolio-item {
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .portfolio .portfolio-item:hover {
