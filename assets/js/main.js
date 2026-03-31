@@ -261,4 +261,62 @@
     });
   }
 
+  /**
+   * Contact form (Formspree) async submit to keep user on-page
+   */
+  const contactForm = document.querySelector('#contact form.custom-form[action*="formspree.io"]');
+  if (contactForm) {
+    const statusEl = contactForm.querySelector('.contact-form-status');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      if (statusEl) {
+        statusEl.style.display = 'block';
+        statusEl.style.color = 'var(--default-color)';
+        statusEl.textContent = 'Sending message...';
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+          method: contactForm.method,
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          contactForm.reset();
+          if (statusEl) {
+            statusEl.style.color = '#6ee7a8';
+            statusEl.textContent = 'Message sent successfully.';
+          }
+        } else {
+          if (statusEl) {
+            statusEl.style.color = '#ff6b6b';
+            statusEl.textContent = 'Failed to send message. Please try again.';
+          }
+        }
+      } catch (error) {
+        if (statusEl) {
+          statusEl.style.color = '#ff6b6b';
+          statusEl.textContent = 'Failed to send message. Please check your connection.';
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+        }
+      }
+    });
+  }
+
 })();
